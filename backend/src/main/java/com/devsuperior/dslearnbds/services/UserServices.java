@@ -29,7 +29,7 @@ public class UserServices implements UserDetailsService{
 	
 	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
-	serviceAuth.validateSelfOrAdmin(id);
+   	 serviceAuth.validateSelfOrAdmin(id);
 	 Optional<User> obj = repository.findById(id);
 	 User result = obj.orElseThrow(() -> new ResourceNotFoundException("User not found!"));
 	 return new UserDTO(result);
