@@ -72,7 +72,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		//adicionando que além do token padrão mais as informações adicionais
 		chain.setTokenEnhancers(Arrays.asList(accessTokenConverter, tokenEnhancer));
 		
-		endpoints.accessTokenConverter(accessTokenConverter).tokenStore(tokenStore).authenticationManager(authenticationManager)
+		endpoints.accessTokenConverter(accessTokenConverter).tokenStore(tokenStore)
+		.authenticationManager(authenticationManager)
 		.tokenEnhancer(chain)
 		.userDetailsService(userDetailsService);
 	}
